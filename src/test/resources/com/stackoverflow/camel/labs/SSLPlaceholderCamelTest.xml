@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/spring"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+	<!-- bridge spring property placeholder with Camel -->
+	<!-- you must NOT use the <context:property-placeholder at the same time, 
+		only this bridge bean -->
+	<bean id="bridgePropertyPlaceholder"
+		class="org.apache.camel.spring.spi.BridgePropertyPlaceholderConfigurer">
+		<property name="location"
+			value="classpath:com/stackoverflow/camel/labs/keys.properties" />
+	</bean>
+
+	<camel:camelContext id="exampleSsl" />	
+	
+	<camel:keyStoreParameters id="ksp"
+		camelContextId="exampleSsl" resource="${keyStoreParameters.resource}"
+		type="${keyStoreParameters.type}" provider="${keyStoreParameters.provider}"
+		password="${keyStoreParamerers.password}" />
+</beans>
