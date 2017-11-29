@@ -19,6 +19,9 @@ public class SSLPlaceholderCamelTest extends CamelSpringTestSupport {
         assertThat(ksp.getProvider(), is("jks"));
         assertThat(ksp.getResource(), is("/users/home/server/keystore.jks"));
         assertThat(ksp.getPassword(), is("test"));
+
+        KeyStoreParameters tsp = (KeyStoreParameters)super.applicationContext.getBean("tsp");
+        assertThat(tsp.getType(), is("jks"));
     }
 
     @Override

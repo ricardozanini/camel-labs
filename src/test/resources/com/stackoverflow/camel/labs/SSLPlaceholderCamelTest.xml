@@ -13,10 +13,17 @@
 			value="classpath:com/stackoverflow/camel/labs/keys.properties" />
 	</bean>
 
-	<camel:camelContext id="exampleSsl" />	
-	
+	<camel:camelContext id="exampleSsl" />
+
 	<camel:keyStoreParameters id="ksp"
 		camelContextId="exampleSsl" resource="${keyStoreParameters.resource}"
 		type="${keyStoreParameters.type}" provider="${keyStoreParameters.provider}"
 		password="${keyStoreParamerers.password}" />
+
+	<camel:keyStoreParameters id="tsp"
+		camelContextId="exampleSsl" resource="${keyStoreParameters.resource}"
+		type="${keyStoreParameters.type}" provider="${keyStoreParameters.provider}"
+		password="${keyStoreParamerers.password}" />
+		
+	<camel:sslContextParameters id="sslContext" camelContextId="exampleSsl" />
 </beans>
