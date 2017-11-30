@@ -45,6 +45,7 @@ public class Netty4RetrieveStatusCode extends CamelTestSupport {
                     .setHeader(Exchange.CONTENT_TYPE, constant("application/json"))
                     .to("netty4-http:http://localhost:8080")
                     .log("The response code is: ${header["+Exchange.HTTP_RESPONSE_CODE+"]}")
+                    .log("The body is: '${body}'")
                     .bean(new Processor() {
                         public void process(Exchange exchange) throws Exception {
                             final Integer code = (Integer)exchange.getIn().getHeader(Exchange.HTTP_RESPONSE_CODE);
