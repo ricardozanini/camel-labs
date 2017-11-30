@@ -1,0 +1,14 @@
+<TransportFeasibilityResponse>
+	<Parameters>
+		<AvailabilityFlag>true</AvailabilityFlag>
+		<SatellitedID>H1B</SatellitedID>
+		<BeamID>675</BeamID>
+		<TransportName>Earth</TransportName>
+	</Parameters>
+	<Parameters>
+		<AvailabilityFlag>true</AvailabilityFlag>
+		<SatellitedID>J34</SatellitedID>
+		<BeamID>111</BeamID>
+		<TransportName>Jupiter</TransportName>
+	</Parameters>
+</TransportFeasibilityResponse>
