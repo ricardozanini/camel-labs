@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cxf="http://camel.apache.org/schema/cxf"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:camel="http://cxf.apache.org/transports/camel"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring  http://camel.apache.org/schema/spring/camel-spring.xsd
+       http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+       http://cxf.apache.org/transports/camel http://cxf.apache.org/transports/camel.xsd
+    ">
+	
+	<bean class="org.apache.cxf.interceptor.LoggingOutInterceptor" id="loggingOutInterceptor" />
+	<bean class="org.apache.cxf.interceptor.LoggingInInterceptor" id="loggingInInterceptor" />
+	
+	<cxf:cxfEndpoint id="calculatorEndpoint"
+		address="http://www.dneonline.com/calculator.asmx" serviceClass="org.tempuri.calculator.CalculatorSoap"
+		endpointName="calculator:CalculatorSoap" serviceName="calculator:Calculator"
+		wsdlURL="wsdl/org.tempuri.calculator.wsdl" xmlns:calculator="http://tempuri.org/">
+		<cxf:inInterceptors>
+			<ref bean="loggingInInterceptor"/>
+		</cxf:inInterceptors>
+		<cxf:outInterceptors>
+			<ref bean="loggingOutInterceptor"/>
+		</cxf:outInterceptors>
+	</cxf:cxfEndpoint>
+	
+	<camelContext id="camel" xmlns="http://camel.apache.org/schema/spring"/>
+
+
+</beans>
