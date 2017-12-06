@@ -151,6 +151,10 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jsonpath</artifactId>
+		</dependency>
 
 
 		<!-- Apache -->
@@ -229,6 +233,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+
+		<!-- others -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+		</dependency>
+
+
 
 		<!-- testing -->
 		<dependency>
