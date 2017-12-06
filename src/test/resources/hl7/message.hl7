@@ -1,0 +1,12 @@
+MSH|^~\&|HL7ABLAB|HNA500|HNAM|HNAM|20090911132151||ADT^A01|
+Q30235031T29347435X328970|A|2.3|123
+EVN|A01|20090911132100|||^DRONE_PM1^DRONE_PM^^^^^^^Personnel
+PID|1||1357920591||IntFace1101A^WinTask^^^^^Current||19801117|M||||||||||
+10000476524^^^FIN^FIN NBR|100000451||||||0
+PV1|1|Inpatient|CD:16067689^CD:16067691^CD:16067741^Uniontown Hospit^^Bed(s)
+^Uniontown Hospit||||||||||||||501455^Orr^Maggi^^^^^^External ID^Personnel^^^
+External
+Identifier~25584^Orr^Maggi^^^^^^PERSONNEL PRIMARY
+IDENTIFIER^Personnel^^^Personnel Primary Identifier|Inpatient|||||||||||||||||||
+||
+Uniontown Hospit||Active|||20090911132100
