@@ -14,7 +14,6 @@ import org.apache.camel.processor.aggregate.AggregationStrategy;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.apache.camel.test.spring.CamelSpringBootRunner;
 import org.apache.camel.test.spring.DisableJmx;
-import org.hamcrest.collection.IsArrayContaining;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
