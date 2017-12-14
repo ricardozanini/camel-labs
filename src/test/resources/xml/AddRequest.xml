@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Envelope xmlns="http://www.w3.org/2003/05/soap-envelope" xmlns:ns2="http://tempuri.org/">
+    <Body>
+        <ns2:Add>
+            <ns2:intA>10</ns2:intA>
+            <ns2:intB>20</ns2:intB>
+        </ns2:Add>
+    </Body>
+</Envelope>
