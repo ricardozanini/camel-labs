@@ -1,14 +1,16 @@
-package com.stackoverflow.camel.labs;
+package com.stackoverflow.camel.labs.json;
+
+import java.io.IOException;
+import java.nio.charset.Charset;
 
 import org.apache.camel.CamelContext;
-import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.camel.RoutesBuilder;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.apache.camel.test.spring.CamelSpringBootRunner;
 import org.apache.camel.test.spring.DisableJmx;
+import org.apache.camel.util.toolbox.AggregationStrategies;
+import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +18,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
-import ca.uhn.hl7v2.model.Message;
 
 @RunWith(CamelSpringBootRunner.class)
-@SpringBootTest()
+@SpringBootTest
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @DisableJmx(true)
-// https://stackoverflow.com/questions/47674480/how-to-read-hl7-file-and-parse-it-using-apache-camel-hapi-spring-java-config
-public class HL7SimpleRouteTest extends CamelTestSupport {
-
+// https://stackoverflow.com/questions/47796217/apache-camel-with-json-array-split
+public class JsonArraySplitRouterTest extends CamelTestSupport {
+    
     @Autowired
     private CamelContext camelContext;
 
@@ -32,35 +33,34 @@ public class HL7SimpleRouteTest extends CamelTestSupport {
     protected CamelContext createCamelContext() throws Exception {
         return camelContext;
     }
-
+    
     @Override
     protected RoutesBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
-
+            
             @Override
             public void configure() throws Exception {
-                from("file:src/test/resources/hl7?noop=true")
-                    .convertBodyTo(String.class)
-                    .unmarshal()
-                    .hl7(false)
-                    .log("The Message body is: ${body}")
-                    .process(new Processor() {
-                        public void process(Exchange exchange) throws Exception {
-                            final Message message = exchange.getIn().getBody(Message.class);
-                            System.out.println("Original message: " + message);
-                        }
-                    })
+                from("direct:start")
+                    .split().jsonpath("$")
+                        .streaming()
+                        .aggregate(AggregationStrategies.groupedExchange())
+                        .constant("true")
+                        .completionSize(5)
+                        .completionTimeout(1000)
+                        .log("${body}")
                     .to("mock:result");
             }
         };
     }
 
     @Test
-    public void test() throws InterruptedException {
-        MockEndpoint mock = getMockEndpoint("mock:result");
-        mock.expectedMessageCount(1);
-        mock.expectedBodyReceived().body(Message.class);
-
+    public void test() throws IOException, InterruptedException {
+        getMockEndpoint("mock:result").expectedMessageCount(2);
+        
+        sendBodies("direct:start", 
+                   IOUtils.toString(
+                                    this.getClass().getResourceAsStream("/json/47796217.json"), Charset.defaultCharset()));
+        
         assertMockEndpointsSatisfied();
     }
 

@@ -1,4 +1,4 @@
-package com.stackoverflow.camel.labs;
+package com.stackoverflow.camel.labs.sql;
 
 import static org.hamcrest.Matchers.is;
 

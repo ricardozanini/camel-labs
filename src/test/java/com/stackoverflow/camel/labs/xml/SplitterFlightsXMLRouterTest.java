@@ -1,4 +1,4 @@
-package com.stackoverflow.camel.labs;
+package com.stackoverflow.camel.labs.xml;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

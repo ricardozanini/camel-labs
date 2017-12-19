@@ -1,4 +1,4 @@
-package com.stackoverflow.camel.labs;
+package com.stackoverflow.camel.labs.props;
 
 import static org.hamcrest.Matchers.is;
 

@@ -1,4 +1,4 @@
-package com.stackoverflow.camel.labs;
+package com.stackoverflow.camel.labs.http;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.notNullValue;

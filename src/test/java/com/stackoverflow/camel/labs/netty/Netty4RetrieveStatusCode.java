@@ -1,4 +1,4 @@
-package com.stackoverflow.camel.labs;
+package com.stackoverflow.camel.labs.netty;
 
 import static org.hamcrest.CoreMatchers.is;
 

@@ -1,4 +1,4 @@
-package com.stackoverflow.camel.labs;
+package com.stackoverflow.camel.labs.bean;
 
 import java.util.Map;
 import java.util.concurrent.TimeUnit;

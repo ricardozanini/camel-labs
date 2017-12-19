@@ -1,4 +1,4 @@
-package com.stackoverflow.camel.labs;
+package com.stackoverflow.camel.labs.soap;
 
 import java.io.IOException;
 import java.io.InputStream;

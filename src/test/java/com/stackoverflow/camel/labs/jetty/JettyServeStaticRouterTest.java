@@ -1,4 +1,4 @@
-package com.stackoverflow.camel.labs;
+package com.stackoverflow.camel.labs.jetty;
 
 import static org.hamcrest.CoreMatchers.containsString;
 
