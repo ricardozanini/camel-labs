@@ -67,6 +67,10 @@
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-soap</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-bindy</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.apache.camel</groupId>
@@ -176,6 +180,10 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-groovy</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jdbc</artifactId>
 		</dependency>
 
 		<!-- Apache -->
