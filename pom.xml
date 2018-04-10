@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
@@ -14,6 +15,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<fabric8.version>2.2.170.redhat-000022</fabric8.version>
 		<camel.version>2.20.1</camel.version>
 		<spring.boot-version>1.5.8.RELEASE</spring.boot-version>
 		<java.version>1.8</java.version>
@@ -24,7 +26,6 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- Spring Boot BOM -->
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
@@ -32,7 +33,6 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<!-- Camel BOM -->
 			<dependency>
 				<groupId>org.apache.camel</groupId>
 				<artifactId>camel-spring-boot-dependencies</artifactId>
@@ -189,7 +189,7 @@
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-hawtdb</artifactId>
 		</dependency>
-		
+
 
 		<!-- Apache -->
 		<dependency>
@@ -296,6 +296,11 @@
 		<dependency>
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derby</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

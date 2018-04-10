@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:camel="http://camel.apache.org/schema/spring"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://cxf.apache.org/transports/camel http://cxf.apache.org/transports/camel.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+       
+       <jdbc:embedded-database id="datasource" type="H2">
+       		<jdbc:script location="classpath:sql/StoreProceduresPlaceholderParameters.sql"/>
+       </jdbc:embedded-database>
+       
+       <camel:camelContext id="camel">
+       		<camel:route id="routeStoredProcedureTest">
+       			<camel:from uri="direct:sp-test" />
+       			<camel:log message="$simple{body}"></camel:log>
+       			<camel:to id="_to1" uri="sql-stored:IS_PRIME(INTEGER ${body})?dataSource=#datasource"/>
+       			<camel:to uri="mock:result"/>
+       		</camel:route>
+       </camel:camelContext>
+
+</beans>

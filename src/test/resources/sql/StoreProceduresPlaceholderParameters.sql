@@ -1,0 +1,1 @@
+CREATE ALIAS IS_PRIME FOR "com.stackoverflow.camel.labs.sql.functions.DemoFunction.isPrime(int)";
