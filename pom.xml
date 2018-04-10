@@ -21,22 +21,15 @@
 		<java.version>1.8</java.version>
 		<httpcomponents.version>4.5.3</httpcomponents.version>
 		<jetty.version>9.4.6.v20170531</jetty.version>
-
+		<hapi.version>2.3</hapi.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-dependencies</artifactId>
-				<version>${spring.boot-version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.camel</groupId>
-				<artifactId>camel-spring-boot-dependencies</artifactId>
-				<version>${camel.version}</version>
+				<groupId>io.fabric8</groupId>
+				<artifactId>fabric8-project-bom-camel-spring-boot</artifactId>
+				<version>${fabric8.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -276,6 +269,7 @@
 		<dependency>
 			<groupId>ca.uhn.hapi</groupId>
 			<artifactId>hapi-structures-v23</artifactId>
+			<version>${hapi.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>ca.uhn.hapi</groupId>
