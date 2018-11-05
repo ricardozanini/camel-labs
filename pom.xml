@@ -15,8 +15,12 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<fabric8.version>2.2.170.redhat-000022</fabric8.version>
-		<camel.version>2.20.1</camel.version>
+		<!--  fuse 6.3
+		<fabric8.version>2.2.170.redhat-000030</fabric8.version>
+		 -->
+		 <!--  fuse 7.1 -->
+		<fabric8.version>3.0.11.fuse-710023-redhat-00001</fabric8.version>
+		<camel.version>2.21.0</camel.version>
 		<spring.boot-version>1.5.8.RELEASE</spring.boot-version>
 		<java.version>1.8</java.version>
 		<httpcomponents.version>4.5.3</httpcomponents.version>
@@ -115,6 +119,7 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-http</artifactId>
+			<version>${camel.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
@@ -181,6 +186,10 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-hawtdb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-cassandraql</artifactId>
 		</dependency>
 
 
@@ -265,6 +274,7 @@
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
+			<version>20180813</version>
 		</dependency>
 		<dependency>
 			<groupId>ca.uhn.hapi</groupId>
@@ -295,6 +305,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
+			<version>1.4.197</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
